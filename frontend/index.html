@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+             <title>ЛР1 - мій застосунок</title>
+                <link rel="stylesheet" href="styles.css" />
+                    <script src="app.js" defer></script>
+</head>
+<body>
+        <header>
+        <h1> Система пропусків у комп'ютерний клас (варіант №8)</h1>
+         </header>
+        <p> Заповніть таблицю, після натисніть: "<strong> Додати </strong>", запис зявиться у реєстрі пропусків </p>
+        <main class="container">
+            <section id="create-section">
+                <h2>Керування можливістю</h2>
+                <form id="createForm">
+                    <div class="field">
+                        <label for="UserPHD"> Ваша освітня программа </label>
+                            <select id="UserPHD" required>
+                            <option value=""> Оберіть вашу ОС</option>
+                            <option value="Baclvr"> Бакалавр </option>
+                            <option value="Magistr"> Магістр</option>
+                            </select>
+                        <p class="error-text" id="UserPHDError"></p>
+                        </div>
+                    <div class="field">
+                        <label for="userNameInput">Користувач (UserName)</label>
+                        <input id="userNameInput" type="text" placeholder="Напишіть фамілію та ім'я" required minlength="4" maxlength="35" />
+                        <p class="error-text" id="userNameError"></p>
+                    </div>
+                    <div class="field">
+                      <label for="reasonSelect"> Причина пропуску(Reason)</label>
+                        <select id="reasonSelect" required>
+                        <option value=""> виберіть вашу причину</option>
+                            <option value="LabWork"> Лабораторна робота</option>
+                            <option value="PractWork"> Практична робота </option>
+                            <option value="Exam"> Екзамен </option>
+                            <option value="ModuleWork"> Модульна контрольна робота </option>
+                        </select>
+                        <p class="error-text" id="reasonError"></p>
+                    </div>
+                    <div class="field">
+                        <label for="DateId"> Введіть дату</label>
+                        <input id ="DateId" type="date" required/>
+                        <p class="error-text" id="DateError"></p>
+                    </div>
+                    <div class="field">
+                        <label for="issuerInput">Ким видано (Issuer)</label>
+                        <input id="issuerInput" type="text" required />
+                        <p class="error-text" id="issuerError"></p>
+                    </div>
+                    <div class="field">
+                        <label for="commentInput">Коментар (Comment)</label>
+                        <textarea id="commentInput" rows="3"></textarea>
+                        <p class="error-text" id="commentError"></p>
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" id="submitBtn">Додати запис</button>
+                        <button type="button" id="resetBtn">Очистити</button>
+                    </div>
+                </form>
+            </section>
+            <section id="list-section">
+                <h2>Реєстр пропусків</h2>
+                <div class="toolbar" id="filters">
+                    <label for="searchInput" class="visually-hidden">Пошук за користувачем</label>
+                    <input type="text" id="searchInput" placeholder="Пошук за користувачем..." />
+
+                    <label for="filterReasonSelect" class="visually-hidden">Фільтр за причиною</label>
+                    <select id="filterReasonSelect">
+                        <option value="" selected>Всі причини</option>
+                        <option value="ModuleWork"> Модульна контрольна робота </option>
+                        <option value="LabWork">Лабораторна робота</option>
+                        <option value="PractWork">Практична робота</option>
+                        <option value="Exam">Іспит</option>
+                    </select>
+                </div>
+
+                <table id="passesTable">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Користувач</th>
+                        <th>Причина</th>
+                        <th>Дата дії</th>
+                        <th>Ким видано</th>
+                        <th>Дії</th>
+                    </tr>
+                    </thead>
+                    <tbody id="passesTableBody">
+                    </tbody>
+                </table>
+            </section>
+        </main>
+</body>
+</html>
